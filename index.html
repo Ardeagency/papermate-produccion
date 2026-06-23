@@ -342,8 +342,14 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
 .video-grid video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#0a1e47}
 .video-grid figcaption{padding:15px 17px;font-size:13.5px;color:#c4d2e8;background:var(--blue-2);border-top:1px solid rgba(255,255,255,.1)}
 .video-grid figcaption b{color:#fff;font-weight:600;font-family:var(--disp);font-weight:420;font-size:16px;display:block;margin-bottom:3px}
-.vbadge{position:absolute;top:13px;left:13px;z-index:2;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;background:rgba(226,35,26,.92);color:#fff;padding:5px 11px;border-radius:30px}
-.vsound{position:absolute;bottom:13px;right:13px;z-index:2;font-size:11px;font-weight:600;color:#fff;background:rgba(10,30,71,.6);backdrop-filter:blur(6px);padding:6px 11px;border-radius:30px;cursor:pointer;border:1px solid rgba(255,255,255,.2)}
+.vbadge{position:absolute;top:13px;left:13px;z-index:3;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;background:rgba(226,35,26,.92);color:#fff;padding:5px 11px;border-radius:30px;transition:.25s}
+.video-grid figure.playing .vbadge{opacity:0}
+.playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;
+  background:rgba(247,242,232,.94);border:none;cursor:pointer;display:grid;place-items:center;z-index:3;
+  box-shadow:0 16px 38px -12px rgba(10,30,71,.8);transition:.28s}
+.playbtn:hover{transform:translate(-50%,-50%) scale(1.09);background:#fff}
+.playbtn svg{width:27px;height:27px;margin-left:4px;fill:var(--blue)}
+.video-grid figure.playing .playbtn{opacity:0;pointer-events:none}
 .iagal{columns:3;column-gap:16px;margin-top:54px}
 @media(max-width:900px){.iagal{columns:2}}
 @media(max-width:560px){.iagal{columns:1;max-width:420px;margin-left:auto;margin-right:auto}}
@@ -372,7 +378,7 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
   <a href="#top"><img class="logo" src="assets/img/logo.png" alt="Paper Mate" /></a>
   <div class="right">
     <div class="nav-links">
-      <a href="#duda">La duda</a>
+      <a href="#duda">La propuesta</a>
       <a href="#mundos">Dos mundos</a>
       <a href="#ruta">La ruta</a>
       <a href="#videos">Videos</a>
@@ -387,9 +393,9 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-copy reveal in">
-    <span class="eyebrow">Producción · La pregunta que quedaba</span>
+    <span class="eyebrow">Producción audiovisual · Nuestra propuesta</span>
     <h1>Hecho a mano<br>de verdad. <em>Potenciado<br>con IA.</em></h1>
-    <p class="sub">La única duda que quedó del pitch fue el cómo: ¿foto y video con inteligencia artificial? Esta es nuestra respuesta — una <b>ruta de creación híbrida</b> que toma lo mejor de los dos mundos, con pruebas reales del mood al que podemos llegar.</p>
+    <p class="sub">Esta es nuestra propuesta del camino para producir el video y la fotografía del proyecto: una <b>ruta de creación híbrida</b> que toma lo mejor de los dos mundos, con pruebas reales del mood al que podemos llegar.</p>
     <div class="meta-line">
       <div><div class="k">Territorio</div><div class="v">Hacerlo a mano</div></div>
       <div><div class="k">Ruta</div><div class="v">Real + IA</div></div>
@@ -418,9 +424,9 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
 <!-- DUDA -->
 <section id="duda">
   <div class="wrap">
-    <div class="reveal"><span class="eyebrow">El punto a resolver</span></div>
-    <h2 class="reveal d1">Les quedó una sola duda.<br><em>El video y la fotografía.</em></h2>
-    <p class="lead reveal d2">El territorio ya está claro: <b>la alegría de hacerlo a mano</b>. Lo que faltaba por resolver era el cómo se ve y se siente — si llevarlo por inteligencia artificial. Hicimos una prueba: creamos videos e imágenes de referencia para mostrar, sobre todo, <b>el mood</b> al que podemos llegar. Y con este ejemplo ya vemos una ruta muy clara para el proyecto.</p>
+    <div class="reveal"><span class="eyebrow">Nuestra propuesta</span></div>
+    <h2 class="reveal d1">Así proponemos producir<br><em>el video y la fotografía.</em></h2>
+    <p class="lead reveal d2">El territorio ya está claro: <b>la alegría de hacerlo a mano</b>. Esta es nuestra propuesta para llevarlo a video y fotografía — una ruta de creación híbrida. Creamos videos e imágenes de referencia para mostrar, sobre todo, <b>el mood</b> al que podemos llegar. Con este ejemplo vemos una ruta muy clara para el proyecto.</p>
     <div class="note blue lg rot reveal d3" style="margin:30px 0 -8px">↳ no es elegir entre lo real y la IA. Es sumarlos.</div>
   </div>
 </section>
@@ -479,24 +485,24 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
     <div class="video-grid reveal d2">
       <figure>
         <span class="vbadge">Prueba · mood</span>
-        <video src="assets/vid/v1.mp4" poster="assets/img/poster1.jpg" muted loop playsinline preload="metadata"></video>
-        <span class="vsound" data-v="0">Activar sonido</span>
+        <video src="assets/vid/v1.mp4" poster="assets/img/poster1.jpg" controls playsinline preload="metadata"></video>
+        <button class="playbtn" aria-label="Reproducir"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></button>
         <figcaption><b>Escribir a mano</b>El gesto real de escribir, en su naturalidad y espontaneidad.</figcaption>
       </figure>
       <figure>
         <span class="vbadge">Prueba · mood</span>
-        <video src="assets/vid/v2.mp4" poster="assets/img/poster2.jpg" muted loop playsinline preload="metadata"></video>
-        <span class="vsound" data-v="1">Activar sonido</span>
+        <video src="assets/vid/v2.mp4" poster="assets/img/poster2.jpg" controls playsinline preload="metadata"></video>
+        <button class="playbtn" aria-label="Reproducir"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></button>
         <figcaption><b>La tinta y el trazo</b>Cómo fluye el producto sobre el papel — la verdad del bolígrafo.</figcaption>
       </figure>
       <figure>
         <span class="vbadge">Prueba · mood</span>
-        <video src="assets/vid/v3.mp4" poster="assets/img/poster3.jpg" muted loop playsinline preload="metadata"></video>
-        <span class="vsound" data-v="2">Activar sonido</span>
+        <video src="assets/vid/v3.mp4" poster="assets/img/poster3.jpg" controls playsinline preload="metadata"></video>
+        <button class="playbtn" aria-label="Reproducir"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></button>
         <figcaption><b>Color y momento</b>El mundo alrededor del trazo, ambientado con IA.</figcaption>
       </figure>
     </div>
-    <p class="lead reveal d3" style="margin-top:26px;font-size:14px;opacity:.8">Los videos se reproducen en silencio y en bucle. Toca <b>"Activar sonido"</b> para escucharlos.</p>
+    <p class="lead reveal d3" style="margin-top:26px;font-size:14px;opacity:.8">Toca <b>play</b> para reproducir cada prueba con sonido.</p>
   </div>
 </section>
 
@@ -559,15 +565,16 @@ for(let i=1;i<=11;i++){
 }
 document.getElementById('lightbox').addEventListener('click',e=>e.currentTarget.classList.remove('on'));
 
-/* videos: autoplay en viewport + toggle sonido */
-const vids=[...document.querySelectorAll('.video-grid video')];
-const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{});}else{v.pause();}}),{threshold:.4});
-vids.forEach(v=>vio.observe(v));
-document.querySelectorAll('.vsound').forEach(btn=>btn.addEventListener('click',()=>{
-  const v=vids[+btn.dataset.v];
-  vids.forEach((o,i)=>{if(i!==+btn.dataset.v){o.muted=true;document.querySelectorAll('.vsound')[i].textContent='Activar sonido';}});
-  v.muted=!v.muted;btn.textContent=v.muted?'Activar sonido':'Silenciar';if(!v.muted)v.play().catch(()=>{});
-}));
+/* videos: botón de play (con sonido), uno a la vez */
+const vfigs=[...document.querySelectorAll('.video-grid figure')];
+vfigs.forEach(fig=>{
+  const v=fig.querySelector('video'), btn=fig.querySelector('.playbtn');
+  const go=()=>{vfigs.forEach(o=>{if(o!==fig)o.querySelector('video').pause();});v.play().catch(()=>{});};
+  btn.addEventListener('click',go);
+  v.addEventListener('play',()=>fig.classList.add('playing'));
+  v.addEventListener('pause',()=>fig.classList.remove('playing'));
+  v.addEventListener('ended',()=>fig.classList.remove('playing'));
+});
 
 /* reveal + progress + nav (igual al pitch) */
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
