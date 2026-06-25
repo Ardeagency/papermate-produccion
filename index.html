@@ -401,7 +401,22 @@ footer .ar{font-family:var(--disp);font-style:italic;color:#9fc0ee;font-size:15p
       <div><div class="k">Ruta</div><div class="v">Real + IA</div></div>
       <div><div class="k">Estas piezas</div><div class="v">Prueba de mood</div></div>
     </div>
-    <a class="pitch-cta" href="https://ardeagency.github.io/papermate-pitch/pitch.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:var(--red);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:15px 30px;border-radius:40px;box-shadow:0 10px 24px rgba(226,35,26,.3);transition:transform .2s">Ver pitch completo <span style="font-size:15px">↗</span></a>
+<style>
+.pitch-card{display:block;position:relative;width:min(430px,92vw);margin-top:32px;border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.22);text-decoration:none;background:#000;transition:transform .3s,box-shadow .3s}
+.pitch-card img{display:block;width:100%;height:auto;transition:transform .5s}
+.pitch-card:hover{transform:translateY(-4px);box-shadow:0 22px 52px rgba(226,35,26,.3)}
+.pitch-card:hover img{transform:scale(1.04)}
+.pitch-card .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,0) 58%);display:flex;align-items:flex-end;padding:18px 20px}
+.pitch-card .lab{display:flex;align-items:center;gap:13px;color:#fff}
+.pitch-card .play{width:44px;height:44px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex:0 0 auto;box-shadow:0 6px 18px rgba(226,35,26,.55);transition:transform .3s}
+.pitch-card:hover .play{transform:scale(1.08)}
+.pitch-card .lt{font-weight:800;font-size:14.5px;letter-spacing:.04em;text-transform:uppercase;line-height:1.15}
+.pitch-card .lt small{display:block;font-weight:500;font-size:11px;letter-spacing:.06em;opacity:.85;text-transform:none;margin-top:3px}
+</style>
+    <a class="pitch-card" href="https://ardeagency.github.io/papermate-pitch/pitch.pdf" target="_blank" rel="noopener" aria-label="Ver pitch completo Paper Mate">
+      <img src="assets/img/pitch-cover.jpg" alt="Portada del pitch Paper Mate">
+      <div class="ov"><div class="lab"><span class="play">▶</span><span class="lt">Ver pitch completo<small>39 páginas · PDF</small></span></div></div>
+    </a>
   </div>
   <div class="hero-visual reveal in d2">
     <div class="frame"><img src="assets/img/ia_09.jpg" alt="Hecho a mano, potenciado con IA" /></div>
